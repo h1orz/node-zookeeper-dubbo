@@ -61,7 +61,7 @@ Socket.prototype.onConnect = function() {
   this.heartBeatInter = setInterval(() => {
     if (!this.heartBeatLock) {
       // prettier-ignore
-      this.socket.write(Buffer([0xda, 0xbb, 0xe2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x01, 0x4e]));
+      this.socket.write(Buffer.from([0xda, 0xbb, 0xe2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x01, 0x4e]));
     }
   }, 5000);
 };

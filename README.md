@@ -1,8 +1,22 @@
+# node-zookeeper-dubbo-plus
+node-zookeeper-dubbo年久失修，无法支持dubbo 2.6.3+协议，错误如下：
+```
+Unknown result flag, expect '0' '1' '2', get 3
+Unknown result flag, expect '0' '1' '2', get 4
+Unknown result flag, expect '0' '1' '2', get 5
+```
+# 修改内容
+
+* 增加对dubbo 2.6.3+协议的支持，方法比较粗暴，直接忽略了attachments信息。
+* 消除DEP0005警告，替换`Buffer() => Buffer.from()`。
+
+其他使用方法同原包，变更包名即可。以下为原文：
+
+
 # node-zookeeper-dubbo
 nodejs通过dubbo默认协议通信
 
 **3.0版本发布，使用长连接进行通信，同时重构了大量代码，性能几乎翻倍。**
-
 
 ### 用法
 
@@ -11,7 +25,7 @@ const nzd=require('node-zookeeper-dubbo');
 const app=require('express')();
 const opt={
   application:{name:'fxxk'},
-  register:'www.cctv.com:2181',
+  registry:'www.cctv.com:2181',
   dubboVer:'2.5.3.6',
   root:'dubbo',
   dependencies:{
@@ -71,7 +85,7 @@ app.listen(9090)
 ### 参数配置说明
 - **application**
   * name - 项目名称，必填
-- **register** - zookeeper服务地址，必填
+- **registry** - zookeeper服务地址，必填
 - **dubboVer** - dubbo版本，必填
 - **root** - 注册到zookeeper上的根节点名称
 - **dependencies** - 依赖的服务集，必填

@@ -1,11 +1,13 @@
 {
-  "name": "node-zookeeper-dubbo",
-  "version": "3.0.15",
+  "name": "node-zookeeper-dubbo-plus",
+  "version": "3.0.16",
   "description": "node connect dubbo by default protocol in zookeeper",
   "main": "index.js",
   "scripts": {
     "test": "ava",
-    "debug": "DEBUG=yoke nodemon test/index.js"
+    "debug": "DEBUG=yoke nodemon test/index.js",
+    "local": "nodemon --inspect test/index.js",
+    "local-brk": "nodemon --inspect-brk test/index.js"
   },
   "keywords": [
     "zookeeper",
@@ -15,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/p412726700/node-zookeeper-dubbo"
+    "url": "https://github.com/h1orz/node-zookeeper-dubbo"
   },
   "author": "pzc <412726700@qq.com>",
   "license": "ISC",
@@ -35,6 +37,7 @@
     "chai": "^4.2.0",
     "eslint": "^5.13.0",
     "js-to-java": "^2.6.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nodemon": "^2.0.7"
   }
 }
